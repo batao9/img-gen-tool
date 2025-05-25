@@ -11,6 +11,7 @@
 GOOGLE_API_KEY=xxxxxxxxxxxxxxxxx
 OUTPUT_DIR='/path/to/output/dir'
 ```
+出力ディレクトリは起動時に `--WORKDIR_OUT` を指定することも可能
 
 ### 開発モードでの起動
 MCP Inspectorを使ってサーバをテスト・デバッグするには:

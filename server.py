@@ -5,10 +5,18 @@ from PIL import Image
 from io import BytesIO
 import dotenv
 import os
+import argparse
 dotenv.load_dotenv()
 
 mcp = FastMCP("Image Generator")
 client = genai.Client(api_key=os.getenv('GOOGLE_API_KEY'))
+
+parser = argparse.ArgumentParser(add_help=False)
+parser.add_argument('--WORKDIR_OUT')
+args, remaining_args = parser.parse_known_args()
+workdir_out_cli = args.WORKDIR_OUT
+
+WORKDIR_OUT = workdir_out_cli or os.getenv('OUTPUT_DIR')
 
 @mcp.tool(
     description='Generate an image based on a prompt. \n'+
@@ -35,7 +43,7 @@ def generate_image(prompt: str, num_images: int = 1, ctx: Context = None) -> str
     for i, generated_image in enumerate(response.generated_images):
         try:
             save_file_name = f'image_{i}.png'
-            save_path = os.path.join(os.getenv('OUTPUT_DIR'), save_file_name)
+            save_path = os.path.join(WORKDIR_OUT, save_file_name)
             image = Image.open(BytesIO(generated_image.image.image_bytes))
             image.save(save_path)
             ret_log += f"Image saved to {save_file_name}\n"
