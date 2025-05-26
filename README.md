@@ -9,9 +9,11 @@
 ### `.env`ファイルの設定
 ```env
 GOOGLE_API_KEY=xxxxxxxxxxxxxxxxx
-OUTPUT_DIR='/path/to/output/dir'
+OPENAI_API_KEY=xxxxxxxxxxxxxxxxx
+WORKDIR_IN='/path/to/input/dir'
+WORKDIR_OUT='/path/to/output/dir'
 ```
-出力ディレクトリは起動時に `--WORKDIR_OUT` を指定することも可能
+ディレクトリは起動時に `--WORKDIR_IN` `--WORKDIR_OUT` を指定することも可能
 
 ### 開発モードでの起動
 MCP Inspectorを使ってサーバをテスト・デバッグするには:
