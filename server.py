@@ -26,7 +26,7 @@ WORKDIR_IN = workdir_in_cli or os.getenv('WORKDIR_IN')
 WORKDIR_OUT = workdir_out_cli or os.getenv('WORKDIR_OUT')
 
 @mcp.tool(
-    description='Generate an image based on a prompt and images. Image is saved to host `WORKDIR_OUT/image.png`.\n'+
+    description='Image Generator: Generate an image based on a prompt and images. Image is saved to host `WORKDIR_OUT/image.png`.\n'+
                 'prompt: Prompts or instructions for generating an image. EN is recommended for prompt.\n'+
                 'input_images: [Optional] A list of image file names to input. The default is None. \n'+
                 'Use this tool when you need to generate **contextually relevant** images based on a prompt. \n'+
